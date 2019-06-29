@@ -33,6 +33,7 @@ process.matchLBKandALD <- function(lbk4match, ald4match) {
     nblocks    = lbk4match$Sector.Classification,
     dictionary = ald4match$Match.Value, 
     dblocks    = ald4match$Sector.Classification, 
+    # FIXME: Use match.score.threshold?
     threshold = .8
   )
 }
@@ -46,6 +47,7 @@ process.matchLBKandALD <- function(lbk4match, ald4match) {
 #' @param scores vector with match scores produced by \link{process.matchLBKandALD}
 #'   function (which contains `Score` column)
 process.flagPerfectMatches <- function(scores) {
+  # FIXME: Use match.score.perfect?
   scores == 1
 }
 

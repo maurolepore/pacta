@@ -142,6 +142,7 @@ process.prepLBK4match <- function(loanbook, selections, override) {
 addLBK4matching <- function(
   level, ids, names, values, sectors, 
   relation = "Id", value.type = "Legal Name", source = "Loanbook",
+  # FIXME: Maybe better to replace this arguments with independent functions.
   simplify = FALSE, cut.ownership = FALSE
 ) {
   match.values <- if (simplify == FALSE) {

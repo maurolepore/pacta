@@ -77,6 +77,7 @@ susbtitute.string <- function(str, subs) {
 #' @param substitutions list of substitutions (list(keyword = value)), so
 #'   {keyword} entries can be replaced in vector of filenames
 get.ds_file_names <- function(ds_name, files, substitutions) {
+  # FIXME: This returns NULL always. Not what the title suggests.
   NULL
   # use dirname(), basename()
 }
@@ -90,5 +91,6 @@ get.ds_file_names <- function(ds_name, files, substitutions) {
 #' @param files list of files to check if they serve as a source for dataset.
 #'   
 get.ds_file_count <- function(ds_name, files) {
+  # FIXME: This returns NULL always. Not what the title suggests.
   NULL
 }
