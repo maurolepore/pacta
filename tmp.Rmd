@@ -1,0 +1,116 @@
+# 3. Reference
+
+I prefer to leave the Reference/ project for a little later. 
+First I prefer to learn more about pacta and the data.
+That should give me some background that will help me make decisions when structuring the
+Reference/
+
+
+
+
+
+
+# 1. pacta
+
+My goal is to learn what the most publicly visible project does, what are the challenges, and plan steps forward.
+
+* We can all work on some aspect of pacta so we practice collaboration workflows.
+
+
+
+## NO BRAKING CHANGES
+
+Clarify intent, organize, build safety net.
+
+### Setup
+
+Discuss workflow: I suggest the github workflow:
+
+* master (+ issues) + PR
+
+Discuss privileges: Who has the last word on pacta?
+
+* Maybe compulsory review and nobody merges their own PRs?
+* Or should I have privileges to merge directly into 2dii/package@master
+
+Todo:
+
+* Enable TravisCI.
+* Create a GitHub release.
+* Increment version number.
+* Enable rmarkdown documentation.
+* Build site on TravisCI.
+
+### Documentation
+
+* Review DESCRIPTION    
+* Rewrite README for users (not developers) and show a common example.
+* If needed, add inst/extdata and example_pacta()?
+* Hide internal functions from website with @nord, or @keyword internal.
+* Ensure user-facing functions are exported and group them with @family.
+* Group functions in website with @family.
+* Add @.return and @exmamples.
+* Build website on TravisCI
+
+### Tests
+
+* Transform examples in tests.
+* Test for informative errors and warnigns (add code as needed)
+
+### Style 
+
+Based on the tidyverse style guide.
+
+* styler::style_package()
+* spelling::spell_check_package()
+
+### Refactor
+
+Documentation:
+
+* Use rmarkdown documentation.
+* DRY documentation with @rdname, @inherit and friends, @template
+* Test for informative messages
+
+Code:
+
+* Replace subset() with dplyr::filter() and dplyr::select().
+* Use r-lib and tidyverse packages for developmet (e.g. rlang, tibble, glue, purrr, usethis, fs, readr or vroom)
+* Spell out TRUE and FALSE
+
+
+
+## BRAKING CHANGES
+
+* In function names, replace dots "." with underscore "_".
+* In function names, replace prefix with @family.
+* In function names, use camelCase or snake_case -- not both.
+* Are the arguments consistent (x, .x, data, .data).
+* Are functions pipable?
+
+
+
+
+
+
+# 2. pacta.data
+
+My goal is to better understand the data and to build the infrastructure to validate it.
+
+An independent data pacakge might be a good idea. It could have (some of) these components: 
+
+* S3 infrastructure (constructors, validators, etc.)
+* Documentation of data, data source, requirements and how construct a valid dataset. 
+* Data dictionary
+* Sector clasification
+* Example datasets in binary and text form for people to see and play with.
+* pacta_example() to get data from the file system.
+* download_data(), browse_data(), if necessary
+* All functions used to prepare, simplify, and match the data.
+* Eventually, a way to get the data directly from its source (database?).
+* An (shiny) application to construct data using point and click tools.
+
+Things to validate:
+
+* Columns names and type.
+* Values and values units
