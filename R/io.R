@@ -1,3 +1,4 @@
+# FIXME: Prefer readr or vroom and fs, which are safer/faster/consistent
 #' read input and return to caller (generic method to read from KV store)
 #'
 #' Function takes another function that performs read and location that tells
@@ -20,7 +21,7 @@ io.file.write <- function(v, f, k) {
   if (!dir.exists(paths = l)) {dir.create(path = l, recursive = T)}
   f(v, k)
 }
-
+# FIXME: Maybe replace with purrr::partial() -- also for i/o functions below
 #' Data import
 #'
 #' @description Function imports data from Key-Value store by given key. By
@@ -94,7 +95,7 @@ io.save <- function(value, key) {
   f <- function(v, k) saveRDS(v, k)
   io.file.write(value, f, k)
 }
-
+# FIXME: move exported function(s) to the top, and rename file/test after it
 #' Get folder name
 #'
 #' @description Supplementary function that calculates dynamic path to file

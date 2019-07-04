@@ -1,3 +1,4 @@
+# FIXME: Can this be replaced by a specific tidyr function?
 #' Make cartesian product of two tables
 #'
 #' @description function returns combination of all records in `l` with all

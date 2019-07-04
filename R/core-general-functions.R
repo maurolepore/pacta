@@ -6,6 +6,10 @@
 #' 
 #' @param x - vector of values for check
 is_empty <- function(x) {
+  # FIXME: The name is missleading. 
+  # * The function checks NA, not for a length-0 vector.
+  # * Also: it focuses on strings only but this isn't obvious from the name
+  # * Clashes with rlang::is_empty()
   is.na(x) | x == ""
 }
 
@@ -18,10 +22,12 @@ is_empty <- function(x) {
 #' @param x - vector of main values
 #' @param y - vector of alternative values (if main value is empty)
 is_null <- function(x, y) {
+  # FIXME: The name is missleading. The function checks NA, not NULL.
+  # See rlang::`%||%`
   ifelse(is.na(x), y, x)
 }
 
-
+# FIXME: Use stringr::str_trim() instead?
 #' Trim whitespaces
 #' 
 #' @description Trim leading and trailing whitespaces from text value

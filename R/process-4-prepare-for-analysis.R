@@ -1,3 +1,4 @@
+# FIXME: Import most common dplyr functions and remove `dplyr::` (see imports.R)
 #' Prepare sets of values for Analysis purposes.
 #'
 #' This function puts information about Regions and countries and some other
@@ -79,6 +80,7 @@ proc.prepareIEATargets4analysis <- function(
       #tce to GJ: * 29.30760
       #1 Cubic metre (m3) ->	Gigajoules (GJ): * 0.0382599380189004
       #b/a -> GJ/a: * 6.12
+      # FIXME: DRY
       AnnualvalIEAtech = case_when(
         Units == "tce" ~ AnnualvalIEAtech * 29.30760,
         Units == "cm" ~ AnnualvalIEAtech * 0.0382599380189004,
@@ -224,6 +226,7 @@ proc.prepareSectorMaster <- function(
     dplyr::select(
       ALD.Level, ID, Name, Country, Year, Technology, Production
     )
+  # FIXME: DRY
   atm.auto <- if (missing(assetmaster.auto)) {
     empty.SectorMaster()
   } else {

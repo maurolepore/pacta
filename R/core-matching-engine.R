@@ -32,7 +32,7 @@ initMatchRes <- function() {
     stringsAsFactors = F
   )
 }
-
+# FIXME: Avoid programming with subset() (see Warning in ?subset())
 # internal function that processes 1 name for matchNames
 match1Name <- function(name, dictionary, threshold) {
   scores <- stringSim(name, dictionary)
@@ -46,7 +46,7 @@ match1Name <- function(name, dictionary, threshold) {
   
   subset(df, df$Score >= threshold)
 }
-
+# FIXME: In matchNames, "Names" is missleading (suggests attribute names())
 #' Find similar names in dictionary
 #' @description Function compares given name with elements of dictionary,
 #'   callculates simiarity scores and returns result in data.frame format.
